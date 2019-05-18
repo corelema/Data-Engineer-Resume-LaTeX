@@ -1,20 +1,20 @@
-# LaTeX resume template
+# My Resume
 
-This is the template I use for my own resume. I've compiled it with elements from several templates, including:
+![Resume Page 1](resume-0.png)
+![Resume Page 2](resume-0.png)
 
-1. [Carmine Spagnuolo's Twenty Seconds Curriculum Vitae](https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex)
-2. [Carmine Benedetto's Smart Fancy LaTeX CV](https://github.com/neoben/smart-fancy-latex-cv)
-3. [Adrien Friggeri's Fancy CV](https://www.sharelatex.com/templates/52fb8c1f33621a613683ecad)
+## LaTeX resume templates used
 
-![CV Screenshot](screen.png)
+These are the templates I compiled and used to create it:
 
-## Installing pre-requisites (Windows)
+1. [Harsh Gadgil's LaTeX resume template](https://github.com/opensorceror/Data-Engineer-Resume-LaTeX)
+2. [Liantze's AltaCV](https://github.com/liantze/AltaCV)
 
-1. Install [MiKTeX](https://miktex.org/howto/install-miktex), a TeX distribution for Windows that includes a large number of major packages.
+## Compilation (Linux)
 
-2. Install an editor to edit and compile LaTeX documents. I recommend [TeXstudio](http://www.texstudio.org/) or [Texmaker](http://www.xm1math.net/texmaker/).
+1. Install TexLive, then run: `xelatex resume.tex`
 
-Once both the distribution and editor are installed, clone this repository using `git clone` and open the template.tex file in your editor. **Important**: Make sure to compile with XeLaTeX, not PDFLaTeX. You're good to go!
+2. To create the screenshots, install ImageMagick, then run `convert -background white -alpha remove -alpha off -density 300 resume.pdf -quality 100 resume.png`
 
 ## License
 

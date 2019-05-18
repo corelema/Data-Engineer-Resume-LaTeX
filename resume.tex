@@ -1,0 +1,358 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Twenty Seconds Resume/CV
+% LaTeX Template
+% Version 1.0 (14/7/16)
+%
+% Original author:
+% Carmine Spagnuolo (cspagnuolo@unisa.it) with major modifications by 
+% Vel (vel@LaTeXTemplates.com) and Harsh (harsh.gadgil@gmail.com)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[letterpaper]{template} % a4paper for A4
+
+%----------------------------------------------------------------------------------------
+%	Color DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+\usepackage{xcolor}
+
+%defineColors
+\definecolor{orange}{RGB}{255,150,0}
+\definecolor{lblue}{RGB}{0,178,255}
+\definecolor{darkblue}{RGB}{0,80,130}
+\definecolor{darkerblue}{RGB}{0,100,160}
+\definecolor{lgray}{RGB}{0,120,200}
+\definecolor{powderblue}{RGB}{190,220,255}
+\definecolor{darkestblue}{RGB}{0,50,80}
+
+
+%main color
+\colorlet{maincol}{orange}
+
+%secondary colors
+\colorlet{secondcol}{lblue}
+\colorlet{thirdcol}{darkblue}
+\colorlet{fourthcol}{darkerblue}
+\colorlet{fifthcol}{lgray}
+\colorlet{sixthcol}{darkblue}
+
+%background color
+\colorlet{bgcol}{powderblue}
+
+%textcolor
+\colorlet{textcol}{darkestblue}
+
+%titletextcolor
+\colorlet{titletext}{white}
+
+%sectioncolor
+\colorlet{sectcol}{white}
+
+%set a background col for whole page
+% \pagecolor{bgcol}
+
+% Command for printing skill overview bubbles
+\newcommand\skills{ 
+~
+	\smartdiagram[bubble diagram]{
+        \textbf{Web}\\\textbf{Developer},
+        \textbf{Typescript},
+        \textbf{Javascript},
+        \textbf{NodeJS},
+        \textbf{HTML}\\\textbf{CSS},
+        \textbf{ReactJS},
+        \textbf{Angular}
+    }
+}
+
+\newcommand\custombullet{\textcolor{separatorblue}{$\textbullet$ }}
+
+% Libraries
+\librariesandframeworks{
+    {\begin{itemize}[label={}]
+        \item Angular \custombullet ReactJS \custombullet NodeJS 
+        \item ngrx \custombullet Redux \custombullet rxjs
+        \item Webpack \custombullet Express \custombullet CircleCI
+        \item Jest \custombullet Jasmine \custombullet Karma
+        \item SCSS \custombullet CSS Modules \custombullet Semantic-UI
+    \end{itemize}}
+}
+
+% tools
+\tools{
+    {\begin{itemize}[label={}]
+        \item npm \custombullet nvm  \custombullet yarn
+        \item Git \custombullet Github \custombullet Bitbucket
+        \item Jira 
+    \end{itemize}}
+}
+
+% Projects text
+\projects{
+    \cvproject
+        {\includegraphics[width=8mm]{img/coupons_clicker.png}}
+        {Browser Extension}
+        {\href{https://chrome.google.com/webstore/detail/coupons-clicker/pobhfamaabhkicbacihdcfgeghelokhf?hl=en-US}{\faChrome}}
+        {Javascript, HTML}
+        {
+            Created a Chrome Extension that automatically clicks all the coupons for the "Just For U" reward program.\\
+            It uses vanilla javascript to find the elements to click, and informs the user of its advancement thanks to a popup.
+        }
+        \\
+    \cvproject
+        {\includegraphics[width=10mm]{img/amazon.png}}
+        {Alexa Skill}
+        {\href{https://github.com/corelema/Battleship}{\faGithub} \href{https://www.amazon.com/Corentin-Boat-War/dp/B01D4O5CO2}{\faShoppingBag}}
+        {Java, Alexa Voice Service, AWS Lambda}
+        {
+            Adapted the famous battleship game into a voice only experience.\\
+            Started this project as a Hackathon, then continued the development to reach a production ready product.\\
+            Since its launch in 2017, this Alex skill has had a few thousands users.
+        }
+        \\
+    \cvproject
+        {\includegraphics[width=10mm]{img/react.png}}
+        {Web Application}
+        {\href{https://github.com/cryptax-org/cryptax-frontend}{\faGithub} \href{https://cryptax.app/}{\faChrome}}
+        {Javascript, ReactJS, Semantic-UI, NodeJS, Redux, Webpack, Duck arch., GCP}
+        {
+            Created the frontend of a crypto currencies tax calculator application.\\
+            While this project is still ongoing due to my time being consumed but my professional obligations, it is a great please for me to experiment with technologies.
+        }
+        \\
+    \cvproject
+        {\includegraphics[width=10mm]{img/hack.png}}
+        {Hackathons}
+        {}
+        {java, C\#, Unity}
+        {
+            Participated in a few hackathons while at Slalom Build.\\
+            Among those, I created an Alexa skill, a Microsoft Hololens application (a copy of Guitar Hero but with a piano instead).
+        }
+}
+
+% certifications
+\certifications{
+    {\begin{itemize}[label={\custombullet}]
+        \item Google Cloud Certified Professional - Cloud Architect (2017)
+        \item M101J: MongoDB for Java Developers (2015)
+    \end{itemize}}
+}
+
+%----------------------------------------------------------------------------------------
+%	 PERSONAL INFORMATION
+%----------------------------------------------------------------------------------------
+% If you don't need one or more of the below, just remove the content leaving the command, e.g. \cvnumberphone{}
+
+\cvname{Corentin Leman} % Your name
+\cvjobtitle{ Software Engineer } % Job
+% title/career
+
+\cvlinkedin{corentinleman}
+\cvgithub{corelema}
+\cvnumberphone{(773) 517 2984} % Phone number
+\cvmail{corentin.leman@gmail.com} % Email address
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makeprofile % Print the sidebar
+
+%----------------------------------------------------------------------------------------
+%	 EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Experience}
+
+\begin{twenty} % Environment for a list with descriptions
+    \twentyitem
+    	{Mar 2018 - Present}
+		{}
+        {Senior Software Engineer}
+        {\href{https://www.slalom.com/}{Slalom Build (Chicago, IL)}}
+        {Common to all the projects I have been working on:}
+        {\begin{itemize}
+            \item Delivering business solutions on Slalom Projects.
+            \item Developing software, improving quality, reusability, extensibility and consistency.
+            \item Utilize multiple programming languages, environments, and tools.
+            \item Working under distributed-agile delivery methodologies.
+            \item Active member of the Modern Web Competency group where I give presentations about technology trends.
+        \end{itemize}}
+    \twentyitem
+        {}
+        {}
+        {}
+        {}
+        {Since Nov 2018: \textbf{Frontend Lead}: Javascript, Angular, rxjs, ngrx}
+        {\begin{itemize}
+            \item Frontend lead of project that revamped the legacy systemn of a gas company.
+            \item Establishing architecture, patterns, and team coding standards.
+            \item Defining coding standards across multiple teams.
+            \item Converting business requirements into stories.
+            \item Teaching and mentoring junior developers.
+        \end{itemize}}
+    \twentyitem
+    	{}
+		{}
+        {}
+        {}
+        {Sep 2018 - Oct 2018: \textbf{Frontend Developer}: Javascript, ReactJS, AWS Lambda, Alexa Voice Service, css animations}
+        {\begin{itemize}
+            \item Developed an automated drive-in order POC for a large fast food chain, by providing a instant feedback UI for an Alex Skill.
+            \item Developed the interface of a predictive and dynamic order system POC for a food service company.
+        \end{itemize}}
+    \twentyitem
+    	{}
+		{}
+        {}
+        {}
+        {Jun 2018 - Aug 2018: \textbf{Frontend Developer}: Javascript, Vue.js, Adobe AEM}
+        {\begin{itemize}
+            \item Maintained a large customer facing agriculture provider's web application.
+            \item Updated fork from UI libraries to maintain and add functionalities to legacy application.
+        \end{itemize}}
+    \twentyitem
+    	{}
+		{}
+        {}
+        {}
+        {Mar 2018 - May 2018: \textbf{Full-stack Developer}: Javascript, ReactJS, Redux, NodeJS, PostgreSQL, Sequelize, SCSS, BEM}
+        {\begin{itemize}
+            \item Implemented and integrated the payment system of a large crops and equipment provider. 
+            \item Integrated payment transaction databases in a NodeJS environment.
+        \end{itemize}}
+    \\\divider\\
+    \twentyitem
+        {Sep 2015 - Feb 2018}
+        {}
+        {Software Engineer}
+        {\href{https://www.slalom.com/}{Slalom Build (Chicago, IL)}}
+        {Apr 2017 - Feb 2018: \textbf{Frontend Developer}: Javascript, AngularJS, Angular, NodeJS, rxjs, ngrx, Express, Webpack, CircleCI, SCSS, codecov}
+        {\begin{itemize}
+            \item Developed the frontend of a b2b application, used by 100+ sales agents.
+            \item Integrated components into a hybrid AngularJS/Angular application.
+            \item Created Slack Slash Command to allow quality engineers to automatically deploy test benches.
+        \end{itemize}}
+    \twentyitem
+    	{}
+		{}
+        {}
+        {}
+        {Jun 2016 - Mar 2017: \textbf{iOS Developer}: Swift, CircleCI, Salesforce SDK, GoogleAnalytics cocoapods, mocha}
+        {\begin{itemize}
+            \item Developed a companion application to help sales people get a quick overview of client's data on the field.
+            \item Leveraged the Salesforce SDK for OAuth2 authentication.
+            \item Updated CI/CD tools to improve build efficiency and reliability.
+        \end{itemize}}
+    \twentyitem
+    	{}
+		{}
+        {}
+        {}
+        {Sep 2015 - May 2016: \textbf{iOS Developer}: Objective-C, Tealium, cocoapods, fastlane, mocha}
+        {\begin{itemize}
+            \item Developed a customer-facing application for a large international hotel chain.
+            \item Developed and automated check-in/check-out process using QR codes and barcodes to facilitate check-in process.
+            \item Used analytics to ensure a high quality product and quick support.  
+        \end{itemize}}
+\end{twenty}
+
+\newpage
+\sidebaronly
+
+\section{Experience (continued)}
+
+\begin{twenty}
+	\twentyitem
+    	{Jun 2013 - Sep 2015}
+		{}
+        {Software Engineer}
+        {\href{https://pros.com/}{PROS (Chicago, IL)}}
+        {Java, JavaScript, Apex, CSS, XML, Oracle, JBoss, Salesforce.com}
+        {\begin{itemize}
+            \item Customized/Implemented CPQ for Salesforce (logic implementation and user interface designing).
+            \item Designed User Interface (HTML, XML, CSS, JavaScript)
+            \item Designed proposal generation. 
+            \item Integrated Cameleon CPQ in Salesforce CRM.
+            \item Developed Java EE plugins to perform various kinds of tasks, depending on customer needs.
+            \item Developed Apex code.
+            \item Worked under Agile project management – in direct relationship with the customer and with daily Scrum meetings.
+        \end{itemize}}
+    \\\divider\\
+    \twentyitem
+        {May 2012 - Aug 2012}
+        {}
+        {Software Engineer}
+        {\href{https://www.valeo.com/en/}{Valeo (Cergy, France)}}
+        {C language}
+        {\begin{itemize}
+            \item Researched information about Checksums \& CRC in order to obtain the necessary skills to develop a solution which ensure the good transmission of data in the electric vehicle development.
+            \item Developed a console based software program which allow custom testing on Checksums \& CRC algorithms.
+            \item Determined the best algorithm to use in the context of an electric vehicle and within the imposed constraints.
+            \item Trained teams on how to use efficiently the different algorithms I studied.
+        \end{itemize}}
+    \\\divider\\
+    \twentyitem
+   		{May 2012 - Aug 2012}
+		{}
+        {Software Engineer}
+        {\href{https://www.safran-group.com/}{Sagem (Eragny, France)}}
+        {C language, C++, Microsoft MFC library}
+        {\begin{itemize}
+            \item Implemented a system which helped Sagem’s engineers to perform benches about the FELIN infantryman equipment.
+            \item Developed a User Interface which allowed the developers to test their work in real time.
+        \end{itemize}}
+    \\\divider\\
+     \twentyitem
+   		{Jun 2012 - Jul 2010}
+		{}
+        {Software Engineer}
+        {\href{http://www.eyebrain.fr/}{e(ye)BRAIN (Ivry, France)}}
+        {C++}
+        {\begin{itemize}
+            \item Updated a C++ application in order to internationalize it.
+        \end{itemize}}
+        
+	%\twentyitem{<dates>}{<title>}{<location>}{<description>}
+\end{twenty}
+
+%----------------------------------------------------------------------------------------
+%	 EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+
+\begin{twenty} % Environment for a list with descriptions
+	\twentyitem
+    	{2013}
+        {}
+        {Master of Information Technology and Management \textnormal{(GPA: 4.0/4.0)}}
+        {}
+        {\href{https://web.iit.edu/}{Illinois Institute of Technology, Chicago, IL}}
+        {}
+	\twentyitem
+    	{2012}
+		{}
+        {Master of Research in Electrical Engineering \textnormal{(Ranked 2\textsuperscript{nd} out of 7)}}
+        {}
+        {\href{https://www.u-cergy.fr/en/index.html}{University of Cergy-Pontoise, Cergy, France}}
+        {}
+    \twentyitem
+    	{2012}
+		{}
+        {Diploma of Engineering in Computer Science (Master Equivalent) \textnormal{(Ranked 1\textsuperscript{st} out of 19)}}
+        {}
+        {\href{https://www.ensea.fr/en}{ENSEA, Cergy, France}}
+        {}
+	%\twentyitem{<dates>}{<title>}{<organization>}{<location>}{<description>} 
+\end{twenty}
+
+\end{document} 

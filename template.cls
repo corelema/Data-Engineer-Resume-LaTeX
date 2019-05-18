@@ -24,6 +24,7 @@
 \RequirePackage{pgffor}
 \RequirePackage{marvosym}
 \RequirePackage{parskip}
+\RequirePackage{dashrule}
 
 \usepackage{enumitem}
 \setlist[itemize]{leftmargin=*}
@@ -62,10 +63,9 @@
 \definecolor{white}{RGB}{255,255,255}
 \definecolor{gray}{HTML}{4D4D4D}
 \definecolor{sidecolor}{HTML}{E7E7E7}
+\definecolor{separatorblue}{HTML}{035D8F}
 \definecolor{mainblue}{HTML}{0E5484}
 \definecolor{maingray}{HTML}{B9B9B9}
-
-\definecolor{pblue}{HTML}{0395DE}
 
 \definecolor{darkgray}{HTML}{333333}
 \definecolor{gray}{HTML}{4D4D4D}
@@ -75,7 +75,7 @@
 \definecolor{purple}{HTML}{D3A4F9}
 \definecolor{red}{HTML}{FB4485}
 \definecolor{blue}{HTML}{6CE0F1}
-\definecolor{pblue}{HTML}{0395DE}
+\definecolor{pblue}{HTML}{0081c1}
 \definecolor{materialpurple}{HTML}{9C27B0}
 \definecolor{materialindigo}{HTML}{3F51B5}
 \definecolor{materialblue}{HTML}{2196F3}
@@ -151,21 +151,26 @@
 % Command for printing the contact information icons
 \newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
 
-% Command for printing skill progress bars
-\newcommand\programming[1]{ 
-	\renewcommand{\programming}{
-		\begin{tikzpicture}
-        	\node [above right] at (0, 4) {$0 \: LOC \: \arrow{3.2} \: 5000 \: LOC$};
-			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
-				\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
-				\node [above right] at (0,\i+0.35) {\x};
-			}
-		\end{tikzpicture}
+\newcommand\librariesandframeworks[1]{ 
+	\renewcommand{\librariesandframeworks}{
+		{#1}
 	}
 }
-\newcommand\education[1]{ 
-	\renewcommand{\education}{
+
+\newcommand\tools[1]{ 
+	\renewcommand{\tools}{
+		{#1}
+	}
+}
+
+\newcommand\projects[1]{ 
+	\renewcommand{\projects}{
+		{#1}
+	}
+}
+
+\newcommand\certifications[1]{ 
+	\renewcommand{\certifications}{
 		{#1}
 	}
 }
@@ -174,9 +179,32 @@
 %  SIDEBAR LAYOUT
 %----------------------------------------------------------------------------------------
 
+\newcommand{\divider}{\textcolor{separatorblue}{\hdashrule{\linewidth}{0.6pt}{0.5ex}}\medskip}
+\newcommand{\ratingmarker}{\faCircle}
+
+\newcommand{\cvskill}[2]{%
+  \textbf{#1}\hfill
+  \foreach \x in {1,...,5}{%
+    \space{\ifnumgreater{\x}{#2}{\color{mainblue!30}}{\color{mainblue}}\ratingmarker}}\par%
+}
+
+\newcommand{\cvproject}[5]{%
+  \parbox[t]{\textwidth}{%
+    #1\dotfill\bfseries\textcolor{mainblue}{#2}
+  }\\
+  \parbox[t]{\textwidth}{%
+    #3\hfill\textit{\footnotesize\color{separatorblue} #4}
+  }\\
+  \parbox[t]{\textwidth}{%
+    #5
+  }
+  \smallskip
+}
+
 \newcommand{\makeprofile}{
   \begin{tikzpicture}[remember picture,overlay]
       \node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+      \draw [thick, separatorblue] (-0.5cm,1cm) -- (-0.5cm,-\paperheight);
   \end{tikzpicture}
 
   %------------------------------------------------
@@ -185,7 +213,7 @@
 
     %------------------------------------------------
     
-        \vspace{4mm}
+    \vspace{4mm}
     {\Huge\color{pblue}\cvname}
     
     \vspace{2mm}
@@ -196,7 +224,7 @@
 
     %------------------------------------------------
     
-    \vspace{3mm}
+    \vspace{4mm}
     \renewcommand{\arraystretch}{2}
     \begin{tabular}{p{1cm} @{\hskip 0.5cm}p{5cm}}
       \ifthenelse{\equal{\cvnumberphone}{}}{}{
@@ -207,13 +235,6 @@
               $} 
             & \cvnumberphone\\}
             
-      \ifthenelse{\equal{\cvsite}{}}{}{
-            {$
-              \begin{array}{l}
-              \hspace{2.8mm} \huge \textnormal{\textcolor{test}{\faGlobe}}
-              \end{array}
-              $} 
-            & \href{http://\cvsite}{\cvsite} \\}
       \ifthenelse{\equal{\cvmail}{}}{}{
             {$
               \begin{array}{l}
@@ -227,7 +248,7 @@
               \begin{array}{l}
               \hspace{3mm} \huge \textnormal{\textcolor{linkedin}{\faLinkedin}}
               \end{array}
-              $} & \href{https://www.linkedin.com\cvlinkedin}{\cvlinkedin} \\
+              $} & \href{https://www.linkedin.com/in/\cvlinkedin}{\cvlinkedin} \\
             }  
         \ifthenelse{\equal{\cvgithub}{}}{}{
             {$
@@ -240,26 +261,57 @@
     \end{tabular}
 
     %------------------------------------------------
-    \vspace{3mm}
-    \profilesection{Technical Skills}{1.2cm}
+    \vspace{4mm}
+    \profilesection{Skills}{4cm}
     
-    {\large \textbf{Overview}}
+    {\large \textbf{Programming}}
 
-	\skills
+    \skills
+          
+    %------------------------------------------------
+          
+    \vspace{3mm}
         
-        %------------------------------------------------
-        
-        \vspace{3mm}
-       
-	 {\large \textbf{Programming}} 
+    {\large \textbf{Libraries/Frameworks}} 
 
-		 \programming
-         
-        \vspace{3mm}
-        \profilesection{Education}{3cm} 
+    \librariesandframeworks
+
+    \vspace{3mm}
         
-        \education
+    {\large \textbf{Tools}} 
+
+    \tools
+
+    \vspace{3mm}
+
+    {\large \textbf{Languages}} 
+
+    \cvskill{English}{5}
+    \divider
+
+    \cvskill{French}{5}
+    \divider
+
+    \cvskill{Spanish}{2}
       
+  \end{textblock}
+}
+
+%----------------------------------------------------------------------------------------
+%  SIDEBAR LAYOUT PAGE 2
+%----------------------------------------------------------------------------------------
+
+\newcommand{\sidebaronly}{
+  \begin{tikzpicture}[remember picture,overlay]
+      \node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+      \draw [thick, separatorblue] (-0.5cm,1cm) -- (-0.5cm,-\paperheight);
+  \end{tikzpicture}
+
+  \begin{textblock}{6}(0.5, 0.2)
+    \profilesection{Projects}{3cm} 
+    \vspace{4mm}\\
+    \projects
+
   \end{textblock}
 }
 
@@ -281,12 +333,16 @@
 
 
 \renewcommand{\section}[1]{
+  \begin{tikzpicture}[overlay]
+    \filldraw [separatorblue] (-0.5,-1) -- (-0.5,-0.5) -- (-0.25,-0.75) -- cycle;
+  \end{tikzpicture}
+
   \par\vspace{\parskip}
 	{%
 		\LARGE\headingfont\color{headercolor}%
 		\@sectioncolor #1%
 	}
-  \par\vspace{1mm}
+  \par\vspace{\parskip}
 }
 
 \renewcommand{\subsection}[1]{
@@ -311,6 +367,12 @@
 	\end{tabular*}
 }
 
+\def\@jobtitlecolor#1#2#3{%
+	{%
+		\color{materialpurple} #1#2#3%
+	}%
+}
+
 % \newcommand{\twentyitem}[5]{%
 % 	#1&\parbox[t]{0.83\textwidth}{%
 % 		\textbf{#2}% 
@@ -322,15 +384,31 @@
 % }
 
 \newcommand{\twentyitem}[6]{%
-	#1&\parbox[t]{0.83\textwidth}{%
-		\textbf{#3}% 
-		\hfill%
-		{\footnotesize#4}%
-        }\\%
-    #2&\parbox[t]{0.83\textwidth}{%
-		\ifblank{#5}{}{#5 \\}
-		#6%
-	}\\
+  \ifblank{#1#2#3#4}{}{
+    \begin{tikzpicture}[overlay]
+      \filldraw (-0.5,0.11) [fill=white, draw=materialpurple, thick] circle [radius=0.2];
+    \end{tikzpicture}
+  }
+
+  \parbox[t]{\textwidth}{%
+    \ifblank{#1}{}{#1:}\hspace{1mm}{\textbf{\@jobtitlecolor #3}}%
+    \hfill%
+    {
+      \color{materialpurple}\textbf{#4}
+    }
+  }\\
+  \ifblank{#2}{\ifblank{#5}{}{
+    \begin{tikzpicture}[overlay]
+      \filldraw (-0.5,0.11) [separatorblue, thick] circle [radius=0.1];
+    \end{tikzpicture}
+
+    \parbox[t]{\textwidth}{\textit{\footnotesize\color{separatorblue} #5}} \\
+  }}{
+    #2&\parbox[t]{0.83\textwidth}{\textit{\footnotesize#4}}\\
+  }
+  \parbox[t]{\textwidth}{%
+    #6
+  }\\
 }
 
 %----------------------------------------------------------------------------------------
