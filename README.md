@@ -1,7 +1,7 @@
 # My Resume
 
-![Resume Page 1](resume-0.png)
-![Resume Page 2](resume-1.png)
+![Resume Page 1](./resume-0.png)
+![Resume Page 2](./resume-1.png)
 
 [Download](resume.pdf)
 
