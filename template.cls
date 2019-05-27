@@ -311,7 +311,14 @@
     \profilesection{Projects}{3cm} 
     \vspace{4mm}\\
     \projects
+  \end{textblock}
 
+  \vspace{3mm}
+
+  \begin{textblock}{6}(0.5, 18.5)
+    \profilesection{Certifications}{1.3cm} 
+    \vspace{4mm}\\
+    \certifications
   \end{textblock}
 }
 
